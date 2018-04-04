@@ -1,0 +1,15 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (HelloTriangle.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  SceneManager.cpp
+glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(input.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_tls.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_tls.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(winmm_joystick.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(winmm_joystick.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\glfw.pdb'; linking object as if no debug info
+  HelloTriangle.vcxproj -> C:\Users\I852573\Documents\Colling\Facul\PG\HelloTransforms\Debug\Transforms.exe
