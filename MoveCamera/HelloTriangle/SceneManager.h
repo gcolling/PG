@@ -33,7 +33,7 @@ public:
 
 private:
 	
-	GLfloat x_axis = 0.0, y_axis = 0.0, vpx = 200, vpy = 150;
+	GLfloat x_axis = 0.0, y_axis = 0.0, zoom_rate = 1.0;
 
 	//GFLW window
 	GLFWwindow *window;

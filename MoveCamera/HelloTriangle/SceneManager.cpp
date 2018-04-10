@@ -91,18 +91,22 @@ void SceneManager::do_movement()
 		glfwSetWindowShouldClose(window, GL_TRUE);
 
 	if (keys[GLFW_KEY_UP])
-		vpy += 0.001f;
+		y_axis += 0.001f;
 
 	if (keys[GLFW_KEY_DOWN])
-		vpy -= 0.001f;
+		y_axis -= 0.001f;
 
 	if (keys[GLFW_KEY_LEFT])
-		vpx -= 0.001f;
+		x_axis -= 0.001f;
 
 	if (keys[GLFW_KEY_RIGHT])
-		vpx += 0.001f;
+		x_axis += 0.001f;
 
-	glViewport(vpx, vpy, width, height);
+	if (keys[GLFW_KEY_X])
+		zoom_rate += 0.001f;
+
+	if (keys[GLFW_KEY_Z])
+		zoom_rate -= 0.001f;
 }
 
 void SceneManager::render()
@@ -116,7 +120,7 @@ void SceneManager::render()
 
 	// Create transformations 
 	model = glm::mat4();
-	model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+	//model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
 	// Get their uniform location
 	GLint modelLoc = glGetUniformLocation(shader->Program, "model");
@@ -136,7 +140,7 @@ void SceneManager::render()
 	glBindVertexArray(0);
 
 	model = glm::mat4();
-	//model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.0f, 0.0f, -1.0f));
+	model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.0f, 0.0f, -1.0f));
 	model = glm::translate(model, glm::vec3(0.5f, 0.5f, 0.0f));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -145,7 +149,7 @@ void SceneManager::render()
 	glBindVertexArray(0);
 
 	model = glm::mat4();
-	//model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.0f, 0.0f, 0.5f));
+	model = glm::rotate(model, (GLfloat)glfwGetTime(), glm::vec3(0.0f, 0.0f, 0.5f));
 	model = glm::translate(model, glm::vec3(-0.5f, -0.5f, 0.0f));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -165,6 +169,10 @@ void SceneManager::run()
 
 		//Update method(s)
 		do_movement();
+
+		//Apply movement
+		setupCamera2D();
+		resized = false;
 
 		//Render scene
 		render();
@@ -219,15 +227,19 @@ void SceneManager::setupCamera2D()
 	//corrigindo o aspecto
 	float ratio;
 	float xMin = -1.0, xMax = 1.0, yMin = -1.0, yMax = 1.0, zNear = -1.0, zFar = 1.0;
+	xMin += x_axis;
+	xMax += x_axis;
+	yMin += y_axis;
+	yMax += y_axis;
 	if (width >= height)
 	{
 		ratio = width / (float)height;
-		projection = glm::ortho(xMin*ratio, xMax*ratio, yMin, yMax, zNear, zFar);
+		projection = glm::ortho(xMin*ratio*zoom_rate, xMax*ratio*zoom_rate, yMin*zoom_rate, yMax*zoom_rate, zNear*zoom_rate, zFar*zoom_rate);
 	}
 	else
 	{
 		ratio = height / (float)width;
-		projection = glm::ortho(xMin, xMax, yMin*ratio, yMax*ratio, zNear, zFar);
+		projection = glm::ortho(xMin*zoom_rate, xMax*zoom_rate, yMin*ratio*zoom_rate, yMax*ratio*zoom_rate, zNear*zoom_rate, zFar*zoom_rate);
 	}
 
 	// Get their uniform location
